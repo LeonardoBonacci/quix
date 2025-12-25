@@ -27,5 +27,15 @@ docker run --rm --network host \
     --from-beginning \
     --property schema.registry.url=http://localhost:8081
 
+
+docker exec -it broker kafka-console-producer \
+  --bootstrap-server localhost:9092 \
+  --topic transaction_requests2  
+
+>{"transaction_id": "tx001", "amount": 120.0, "country": 0, "merchant": 0}
+>{"transaction_id": "tx001", "amount": 120.0, "country": 0, "merchant": 0}
+>{"transaction_id": "tx006", "amount": 75.0,  "country": 0, "merchant": 0}
+>{"transaction_id": "tx007", "amount": 430.0, "country": 1, "merchant": 1}
+>
 ```
 
